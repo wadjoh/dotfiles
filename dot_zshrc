@@ -32,6 +32,9 @@ plugins=(
 	#	zsh-apple-touchbar
 )
 
+# Start asdf
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+
 # Enable Homebrew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
