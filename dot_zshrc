@@ -32,6 +32,9 @@ plugins=(
 	#	zsh-apple-touchbar
 )
 
+# Enable Homebrew completions
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
