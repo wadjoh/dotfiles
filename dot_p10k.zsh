@@ -421,22 +421,34 @@
     fi
 
     # Display "wip" if the latest commit's summary contains "wip" or "WIP".
-    if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP)(|[^[:alnum:]]*) ]]; then
-      res+=" ${modified}wip"
+    # if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP)(|[^[:alnum:]]*) ]]; then
+    #   res+=" ${modified}wip"
+    # fi
+
+    local hasCommitStatus
+
+    if [[ $VCS_STATUS_COMMITS_BEHIND > 0 || $VCS_STATUS_COMMITS_AHEAD > 0 || $VCS_STATUS_PUSH_COMMITS_BEHIND > 0 || $VCS_STATUS_PUSH_COMMITS_AHEAD > 0 || $VCS_STATUS_STASHES > 0 ]]; then
+      hasCommitStatus=true
     fi
 
-    # ⇣42 if behind the remote.
-    (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
-    # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
-    (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
-    (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
-    # ⇠42 if behind the push remote.
-    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
+    # opening bracket for commit status icons
+    [[ -n $hasCommitStatus ]] && res+=" ${clean}["
+
+    # ⇣ if behind the remote.
+    (( VCS_STATUS_COMMITS_BEHIND )) && res+="${clean}⇣"
+    # ⇡ if ahead of the remote
+    (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡"
+    # ⇠ if behind the push remote.
+    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠"
     (( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
-    # ⇢42 if ahead of the push remote; no leading space if also behind: ⇠42⇢42.
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
-    # *42 if have stashes.
-    (( VCS_STATUS_STASHES        )) && res+=" ${clean}*${VCS_STATUS_STASHES}"
+    # ⇢ if ahead of the push remote; no leading space if also behind: ⇠⇢.
+    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢"
+    # * if have stashes.
+    (( VCS_STATUS_STASHES        )) && res+=" ${clean}*"
+
+    # closing bracket for commit status icons
+    [[ -n $hasCommitStatus ]] && res+="${clean}]"
+
     # 'merge' if the repo is in an unusual state.
     [[ -n $VCS_STATUS_ACTION     ]] && res+=" ${conflicted}${VCS_STATUS_ACTION}"
     # ~42 if have merge conflicts.
