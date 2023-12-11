@@ -72,25 +72,6 @@ unsetopt share_history
 # Stop homebrew from auto updating everything when running `brew install` (who actually wants that to happen??)
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-# Open editor to edit this config file
-alias zshconfig="micro ~/dotfiles/.zshrc"
-
-# Open editor to edit local config file
-alias zshconfig_local="micro ~/.custom.zshrc"
-
-alias git_undo_last_commit="git reset HEAD\^"
-alias git_force_push_head="git push origin +HEAD"
-
-# Delete local git branches that were once tracking a remote branch that is now deleted
-# source: https://stackoverflow.com/a/56609356
-alias git_prune_local_dry="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.'"
-alias git_prune_local="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.' | xargs git branch -D"
-
-# kill process using given port
-killport() {
-	lsof -t -i tcp:"$1" | xargs kill -9
-}
-
 # Load nodenv automatically:
 eval "$(nodenv init -)"
 
@@ -108,6 +89,38 @@ eval $(thefuck --alias)
 
 # Load machine specific .zshrc (this should be made so it wont source itself and cause infinite loop)
 [ -f ~/.custom.zshrc ] || echo 'do it' && source ~/.custom.zshrc
+
+######
+# BEGIN: Custom aliases/commands
+######
+
+# kill process using given port
+killport() {
+	lsof -t -i tcp:"$1" | xargs kill -9
+}
+
+# Open editor to edit this config file
+alias zshconfig="micro ~/dotfiles/.zshrc"
+
+# Open editor to edit local config file
+alias zshconfig_local="micro ~/.custom.zshrc"
+
+alias git_undo_last_commit="git reset HEAD\^"
+alias git_force_push_head="git push origin +HEAD"
+
+# Delete local git branches that were once tracking a remote branch that is now deleted
+# source: https://stackoverflow.com/a/56609356
+alias git_prune_local_dry="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.'"
+alias git_prune_local="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.' | xargs git branch -D"
+
+# Set system `ls` to `.ls` since we will be aliasing the `ls` command
+alias ".ls"='/bin/ls -G'
+# Replace `ls` command with `eza` with some nice defaults set
+alias ls='eza --icons --group-directories-first'
+
+######
+# END: Custom aliases/commands
+######
 
 # Load syntax highlighting
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
