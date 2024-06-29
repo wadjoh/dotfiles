@@ -39,9 +39,6 @@ plugins=(
 	#	zsh-apple-touchbar
 )
 
-# Start asdf
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-
 # Enable Homebrew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
@@ -80,9 +77,6 @@ eval "$(nodenv init -)"
 
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# init thefuck
-eval $(thefuck --alias)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
