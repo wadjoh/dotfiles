@@ -82,7 +82,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load machine specific .zshrc (this should be made so it wont source itself and cause infinite loop)
-[ -f ~/.custom.zshrc ] || echo 'do it' && source ~/.custom.zshrc
+[ -f ~/.custom.zshrc ] || source ~/.custom.zshrc
 
 ######
 # BEGIN: Custom aliases/commands
