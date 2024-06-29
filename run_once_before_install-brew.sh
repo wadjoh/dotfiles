@@ -2,6 +2,5 @@
 
 if ! command -v brew &> /dev/null
 then
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-    exit 1
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
