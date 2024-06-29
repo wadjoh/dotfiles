@@ -1,0 +1,138 @@
+// Place your settings in this file to overwrite the default settings
+{
+  // Columns at which to show vertical rulers
+  "editor.rulers": [
+    80
+  ],
+  // Zoom the font of the editor when using mouse wheel and holding Ctrl
+  "editor.mouseWheelZoom": false,
+  // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
+  "editor.cursorBlinking": "phase",
+  // Controls if the editor will scroll using an animation
+  "editor.smoothScrolling": true,
+  // Control auto indentation on type, move, paste, etc.
+  "editor.autoIndent": "full",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "dev/**": true,
+    "tmp/**": true
+  },
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "zsh"
+    }
+  },
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+  },
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "gitlens.keymap": "chorded",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'MonoLisa Nerd Font', MonoLisa,'MesloLGS NF', 'Recursive', 'Berkeley Mono Trial', 'Dank Mono', Cascadia Code, Monaco, 'Courier New', monospace",
+  "editor.lineHeight": 0,
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "workbench.statusBar.visible": true,
+  "window.clickThroughInactive": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.userWords": [
+    "hardcoded"
+  ],
+  "editor.renderWhitespace": "selection",
+  "prettier.ignorePath": ".gitignore",
+  "editor.renderControlCharacters": false,
+  "git.detectSubmodules": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "footsteps.highlightColor": "rgb(60, 60, 60)",
+  "footsteps.maxNumberOfChangesToHighlight": 4,
+  "git.inputValidationSubjectLength": null,
+  "editor.bracketPairColorization.enabled": true,
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "editor.guides.bracketPairs": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "git.pullTags": false,
+  "editor.stickyScroll.enabled": true,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.remotes": [
+    {
+      "domain": "git.taservs.net",
+      "type": "GitHub"
+    }
+  ],
+  "remote.portsAttributes": {
+    "443": {
+      "protocol": "https"
+    },
+    "8443": {
+      "protocol": "https"
+    }
+  },
+  "openInGitHub.github.domain": "git.taservs.net",
+  "search.defaultViewMode": "tree",
+  "search.showLineNumbers": true,
+  "redhat.telemetry.enabled": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "settingsSync.ignoredExtensions": [
+    "dart-code.dart-code",
+    "ms-vscode-remote.remote-wsl",
+    "dorzey.vscode-sqlfluff"
+  ],
+  "shellcheck.customArgs": [
+    "-x"
+  ],
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "workbench.colorTheme": "Reticent UI",
+  "git.mergeEditor": true,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "switch:command",
+    "stash-push:command"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "sqlfluff.dialect": "mysql",
+  "editor.linkedEditing": true,
+  "diffEditor.maxComputationTime": 0,
+  "diffEditor.experimental.useVersion2": true,
+  "github.copilot.advanced": {},
+  "rust-analyzer.linkedProjects": []
+}
