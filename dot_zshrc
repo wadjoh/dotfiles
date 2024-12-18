@@ -94,7 +94,7 @@ killport() {
 }
 
 # Open editor to edit this config file
-alias zshconfig="micro ~/dotfiles/.zshrc"
+alias zshconfig="micro ~/.zshrc"
 
 # Open editor to edit local config file
 alias zshconfig_local="micro ~/.custom.zshrc"
