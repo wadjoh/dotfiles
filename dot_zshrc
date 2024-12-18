@@ -111,6 +111,7 @@ alias git_prune_local="git remote prune origin && LANG=en git branch --format='%
 alias ".ls"='/bin/ls -G'
 # Replace `ls` command with `eza` with some nice defaults set
 alias ls='eza --icons --group-directories-first'
+alias lst='ls -T --level 2'
 
 ######
 # END: Custom aliases/commands
