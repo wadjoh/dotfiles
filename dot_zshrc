@@ -118,3 +118,8 @@ alias ls='eza --icons --group-directories-first'
 
 # Load syntax highlighting
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Make pasting faster
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/295#issuecomment-214581607
+# --- actually not sure if I need this but keeping here just in case ---
+# zstyle ':bracketed-paste-magic' active-widgets '.self-*'
