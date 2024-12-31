@@ -22,12 +22,16 @@ export ZSH="$HOME/.oh-my-zsh"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# fzf multi mode https://github.com/junegunn/fzf.vim/issues/483#issuecomment-907779983
+export FZF_DEFAULT_OPTS='--multi --no-height --extended'
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	fzf-tab
 	git
 	macos
 	dotenv
