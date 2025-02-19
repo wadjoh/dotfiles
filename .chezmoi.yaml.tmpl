@@ -1,11 +1,11 @@
-# For some reason this produces an error when running `chezmoi init`
-# diff:
-#   command: code
-#   args:
-#     - "--wait"
-#     - "--diff"
-#     - "{{ .Destination }}"
-#     - "{{ .Target }}"
+{{/* For some reason this produces an error when running `chezmoi init` */}}
+{{/* diff:
+  command: code
+  args:
+    - "--wait"
+    - "--diff"
+    - "{{ .Destination }}"
+    - "{{ .Target }}" */}}
 
 merge:
   command: "bash"
