@@ -22,9 +22,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# fzf multi mode https://github.com/junegunn/fzf.vim/issues/483#issuecomment-907779983
-export FZF_DEFAULT_OPTS='--multi --no-height --extended'
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -44,7 +41,17 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh)"
 
+# fzf multi mode https://github.com/junegunn/fzf.vim/issues/483#issuecomment-907779983
+export FZF_DEFAULT_OPTS='--multi --no-height --extended'
 source <(fzf --zsh)
+alias fzff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+
+# atuin shell integration
+eval "$(atuin init zsh)"
+atuin gen-completions --shell bash --out-dir $HOME
+
+# fx autocomplete https://fx.wtf/install#autocomplete
+source <(fx --comp zsh)
 
 # Stop history from populating in other tabs
 unsetopt inc_append_history
@@ -108,3 +115,5 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/295#issuecomment-214581607
 # --- actually not sure if I need this but keeping here just in case ---
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
+eval "$(chezmoi completion zsh)"
