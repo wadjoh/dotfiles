@@ -1,0 +1,13 @@
+theme = rose-pine
+font-family = MonoLisa Nerd Font
+font-thicken = true
+font-thicken-strength = 255
+adjust-cell-width = -1
+background-opacity = 0.9
+background-blur = 20
+window-save-state = always
+shell-integration = zsh
+macos-titlebar-style = tabs
+macos-icon = holographic
+keybind = super+shift+up=jump_to_prompt:-1
+keybind = super+shift+down=jump_to_prompt:1
