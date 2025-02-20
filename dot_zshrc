@@ -32,6 +32,7 @@ plugins=(
 	git
 	macos
 	dotenv
+	ohmyzsh-full-autoupdate
 )
 
 # Enable Homebrew completions
