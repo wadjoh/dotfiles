@@ -99,6 +99,8 @@ alias git_force_push_head="git push origin +HEAD"
 alias git_prune_local_dry="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.'"
 alias git_prune_local="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.' | xargs git branch -D"
 
+# Set lst colors
+export EZA_COLORS="$(vivid generate rose-pine)"
 # Set system `ls` to `.ls` since we will be aliasing the `ls` command
 alias ".ls"='/bin/ls -G'
 # Replace `ls` command with `eza` with some nice defaults set
