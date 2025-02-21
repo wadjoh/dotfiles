@@ -35,6 +35,11 @@ plugins=(
 	ohmyzsh-full-autoupdate
 )
 
+# Set up Python with Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # Enable Homebrew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
@@ -106,6 +111,8 @@ alias ".ls"='/bin/ls -G'
 # Replace `ls` command with `eza` with some nice defaults set
 alias ls='eza --icons --group-directories-first --git --dereference --all'
 alias lst='ls -T --level 2'
+
+alias cd="z"
 
 ######
 # END: Custom aliases/commands
