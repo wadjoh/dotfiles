@@ -118,12 +118,13 @@ alias cd="z"
 # END: Custom aliases/commands
 ######
 
-# Load syntax highlighting
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 # Make pasting faster
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/295#issuecomment-214581607
 # --- actually not sure if I need this but keeping here just in case ---
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 eval "$(chezmoi completion zsh)"
+
+# Load syntax highlighting
+# Always load at the end: https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
