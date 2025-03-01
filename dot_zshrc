@@ -9,7 +9,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="/opt/homebrew/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$HOMEBREW_PREFIX/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export EDITOR="micro"
 
 # Activate p10k theme
@@ -24,7 +24,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlig
 COMPLETION_WAITING_DOTS="true"
 
 # Load plugins with antidote
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 # Set up Python with Pyenv
