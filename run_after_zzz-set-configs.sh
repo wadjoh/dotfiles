@@ -1,3 +1,5 @@
 #!/bin/bash
 
-defaults write com.rouge41.middleClick fingers 4
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  defaults write com.rouge41.middleClick fingers 4
+fi
