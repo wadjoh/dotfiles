@@ -27,14 +27,14 @@ brew "zoxide"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-cask "bluesnooze"
+cask "bluesnooze" if OS.mac?
 cask "discord"
 cask "ghostty"
-cask "hiddenbar"
-cask "iterm2"
-cask "itsycal"
-cask "middleclick"
-cask "viscosity"
+cask "hiddenbar" if OS.mac?
+cask "iterm2" if OS.mac?
+cask "itsycal" if OS.mac?
+cask "middleclick" if OS.mac?
+cask "viscosity" if OS.mac?
 cask "visual-studio-code"
 cask "zen-browser"
 vscode "astro-build.astro-vscode"
