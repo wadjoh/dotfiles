@@ -37,25 +37,3 @@ cask "middleclick" if OS.mac?
 cask "viscosity" if OS.mac?
 cask "visual-studio-code"
 cask "zen-browser"
-vscode "astro-build.astro-vscode" if OS.mac?
-vscode "christian-kohler.path-intellisense" if OS.mac?
-vscode "dbaeumer.vscode-eslint" if OS.mac?
-vscode "dorzey.vscode-sqlfluff" if OS.mac?
-vscode "eamodio.gitlens" if OS.mac?
-vscode "esbenp.prettier-vscode" if OS.mac?
-vscode "fabianlauer.vs-code-xml-format" if OS.mac?
-vscode "fabiospampinato.vscode-open-in-github" if OS.mac?
-vscode "mechatroner.rainbow-csv" if OS.mac?
-vscode "miguelsolorio.fluent-icons" if OS.mac?
-vscode "mikestead.dotenv" if OS.mac?
-vscode "ms-python.debugpy" if OS.mac?
-vscode "ms-python.isort" if OS.mac?
-vscode "ms-python.python" if OS.mac?
-vscode "ms-python.vscode-pylan if OS.mac?ce" if OS.mac?
-vscode "redhat.vscode-yaml"
-vscode "rust-lang.rust-analyzer" if OS.mac?
-vscode "sallar.vscode-duotone-dark" if OS.mac?
-vscode "streetsidesoftware.code-spell-checker" if OS.mac?
-vscode "tamasfe.even-better-toml" if OS.mac?
-vscode "timonwong.shellcheck" if OS.mac?
-vscode "unifiedjs.vscode-mdx" if OS.mac?

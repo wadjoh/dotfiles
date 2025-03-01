@@ -1,1 +1,3 @@
 dot_zshrc linguist-language=shell
+dot_Brewfile linguist-language=ruby
+dot_vscode.Brewfile linguist-language=ruby
