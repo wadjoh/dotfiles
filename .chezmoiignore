@@ -1,2 +1,7 @@
 dot_config/iterm/com.googlecode.iterm2.plist
 dot_config/vscode/settings.json
+
+{{ if ne .chezmoi.os "darwin" }}
+Library
+private_Library
+{{ end }}
