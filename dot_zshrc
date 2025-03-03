@@ -12,6 +12,9 @@ fi
 export PATH="$HOMEBREW_PREFIX/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export EDITOR="micro"
 
+# Fix for Ghostty ssh issue: https://github.com/ghostty-org/ghostty/issues/3335
+export TERM="xterm-256color"
+
 # Activate p10k theme
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
