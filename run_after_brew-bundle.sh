@@ -5,5 +5,5 @@ if command -v brew &> /dev/null; then
 fi
 
 if command -v code &> /dev/null; then
-  brew bundle ~/.vscode.Brewfile
+  brew bundle install --file=~/.vscode.Brewfile
 fi
