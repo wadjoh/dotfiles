@@ -1,3 +1,9 @@
+
+# This allows brew to be added to path when logging in to ssh shell
+if (( ! ${+HOMEBREW_PREFIX} )); then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
 # Needed for syntax highlighting
 autoload -Uz compinit
 compinit
