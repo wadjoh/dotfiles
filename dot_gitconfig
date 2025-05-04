@@ -1,0 +1,9 @@
+[user]
+  name = Wade Johnson
+  email = wadej93@gmail.com
+[alias]
+  stashs = stash push -S
+[sequence]
+  editor = interactive-rebase-tool
+[core]
+  pager = bat 
