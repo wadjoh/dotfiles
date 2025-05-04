@@ -65,6 +65,9 @@ unsetopt share_history
 # Stop homebrew from auto updating everything when running `brew install` (who actually wants that to happen??)
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Stop homebrew from auto updating dependents when running `brew install` (seems really broad...)
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+
 # Load nodenv automatically:
 eval "$(nodenv init -)"
 
