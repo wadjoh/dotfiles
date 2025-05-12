@@ -18,6 +18,10 @@ fi
 export PATH="$HOMEBREW_PREFIX/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export EDITOR="micro"
 
+# Use bat for man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # Fix for Ghostty ssh issue: https://github.com/ghostty-org/ghostty/issues/3335
 export TERM="xterm-256color"
 
