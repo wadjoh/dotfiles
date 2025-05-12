@@ -6,4 +6,4 @@
 [sequence]
   editor = interactive-rebase-tool
 [core]
-  pager = bat 
+  pager = bat
