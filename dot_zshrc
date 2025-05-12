@@ -1,6 +1,7 @@
-
+# shellcheck disable=SC2148
 # This allows brew to be added to path when logging in to ssh shell
 if (( ! ${+HOMEBREW_PREFIX} )); then
+  # shellcheck disable=SC2046
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
@@ -11,7 +12,10 @@ compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+# shellcheck disable=SC2296
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  # shellcheck disable=SC1090
+  # shellcheck disable=SC2296
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
@@ -26,19 +30,23 @@ export MANROFFOPT="-c"
 export TERM="xterm-256color"
 
 # Activate p10k theme
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+# shellcheck disable=SC1091
+source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 # Activate zsh-autosuggestions
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# shellcheck disable=SC1091
+source "$(brew --prefix)"/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlighting/highlighters"
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlighting/highlighters"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+export COMPLETION_WAITING_DOTS="true"
 
 # Load plugins with antidote
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+# shellcheck disable=SC1091
+source "$(brew --prefix)"/opt/antidote/share/antidote/antidote.zsh
+antidote load "${ZDOTDIR:-$HOME}"/.zsh_plugins.txt
 
 # Set up Python with Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -52,6 +60,7 @@ eval "$(zoxide init zsh)"
 
 # fzf multi mode https://github.com/junegunn/fzf.vim/issues/483#issuecomment-907779983
 export FZF_DEFAULT_OPTS='--multi --no-height --extended'
+# shellcheck disable=SC1090
 source <(fzf --zsh)
 alias fzff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 
@@ -60,6 +69,7 @@ eval "$(atuin init zsh)"
 atuin gen-completions --shell bash --out-dir $HOME
 
 # fx autocomplete https://fx.wtf/install#autocomplete
+# shellcheck disable=SC1090
 source <(fx --comp zsh)
 
 # Stop history from populating in other tabs
@@ -79,12 +89,15 @@ eval "$(nodenv init -)"
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # iterm2 shell integration
+# shellcheck disable=SC1091
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# shellcheck disable=SC1090
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load machine specific .zshrc (this should be made so it wont source itself and cause infinite loop)
+# shellcheck disable=SC1090
 [ -f ~/.custom.zshrc ] && source ~/.custom.zshrc
 
 ######
@@ -111,7 +124,8 @@ alias git_prune_local_dry="git remote prune origin && LANG=en git branch --forma
 alias git_prune_local="git remote prune origin && LANG=en git branch --format='%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' | grep '.' | xargs git branch -D"
 
 # Set lst colors
-export EZA_COLORS="$(vivid generate rose-pine)"
+EZA_COLORS="$(vivid generate rose-pine)"
+export EZA_COLORS
 # Set system `ls` to `.ls` since we will be aliasing the `ls` command
 alias ".ls"='/bin/ls -G'
 # Replace `ls` command with `eza` with some nice defaults set
@@ -133,4 +147,5 @@ eval "$(chezmoi completion zsh)"
 
 # Load syntax highlighting
 # Always load at the end: https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# shellcheck disable=SC1091
+source "$(brew --prefix)"/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
