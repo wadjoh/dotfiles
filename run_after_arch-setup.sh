@@ -1,14 +1,12 @@
 #! /bin/bash
 
 if ! command -v chezmoi &> /dev/null || ! command -v fx &> /dev/null; then
-  echo "Failed installing apps for silverblue environment"
+  echo "Failed installing apps for arch environment"
   echo "The \`chezmoi\` or \`fx\` command was not found"
   exit 1
 fi
 
-OS_VARIANT=$(chezmoi data | fx .chezmoi.osRelease.idLike)
-
-if [[ "${OS_VARIANT}" != "arch" ]]; then
+if ! command -v pacman &> /dev/null; then
   echo "Arch distro not detected; skipping Arch app installations"
   exit 0
 fi
@@ -23,14 +21,6 @@ else
 fi
 
 # keyd - key remapper daemon to allow for MacOS style shortcuts
-if ! command -v keyd &> /dev/null; then
-  sudo pacman -Sy keyd
-  sudo echo "${KEYD_CONF}" > /etc/keyd/default.conf
-  sudo systemctl enable keyd --now
-else
-  echo "Skipping keyd installation (already installed)"
-fi
-
 init_keyd_conf_content() {
   # copied from https://github.com/rvaiya/keyd/blob/0cbe717b63c73de7872013b0834d90d802047546/examples/macos.conf
   # with some of my own modifications
@@ -121,3 +111,12 @@ left = M-S-tab
 EOF
   )
 }
+
+if ! command -v keyd &> /dev/null; then
+  sudo pacman -Sy keyd
+  init_keyd_conf_content
+  sudo echo "${KEYD_CONF}" > /etc/keyd/default.conf
+  sudo systemctl enable keyd --now
+else
+  echo "Skipping keyd installation (already installed)"
+fi
