@@ -13,6 +13,14 @@ fi
 
 echo "Arch OS detected. Installing apps for Arch"
 
+# allow ssh connections
+if ! systemctl is-active --quiet sshd &> /dev/null; then
+  sudo ufw allow ssh
+  sudo ufw enable
+  sudo systemctl start sshd
+  sudo systemctl enable sshd
+fi
+
 # Ghostty terminal
 if ! command -v ghostty &> /dev/null; then
   pacman -S ghostty
