@@ -23,19 +23,38 @@ fi
 
 # Docker
 if ! command -v docker &> /dev/null; then
+  echo "Installing Docker"
   sudo pacman -S docker
 fi
 
 # Docker Compose
 if ! command -v docker-compose &> /dev/null; then
+  echo "Installing Docker Compose"
   sudo pacman -S docker-compose
 fi
 
-# Make sure docker is running and active
+# Make sure Docker is running and active
 if ! systemctl is-active --quiet docker &> /dev/null; then
+  echo "Starting and enabling the Docker daemon"
   sudo systemctl start docker
   sudo systemctl enable docker
+else
+  echo "Docker is already active"
 fi
+
+# Run Docker without sudo
+if ! id -nG "$USER" | grep -qw "docker"; then
+  if ! getent group docker &> /dev/null; then
+    echo "Creating `docker` group"
+    sudo groupadd docker
+  fi
+  echo "Adding user to `docker` group"
+  sudo usermod -aG docker $USER
+else
+  echo "User already in `docker` group"
+fi
+
+sudo usermod -aG docker $USER
 
 # Ghostty terminal
 if ! command -v ghostty &> /dev/null; then
