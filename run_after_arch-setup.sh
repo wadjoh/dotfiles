@@ -21,6 +21,22 @@ if ! systemctl is-active --quiet sshd &> /dev/null; then
   sudo systemctl enable sshd
 fi
 
+# Docker
+if ! command -v docker &> /dev/null; then
+  sudo pacman -S docker
+fi
+
+# Docker Compose
+if ! command -v docker-compose &> /dev/null; then
+  sudo pacman -S docker-compose
+fi
+
+# Make sure docker is running and active
+if ! systemctl is-active --quiet docker &> /dev/null; then
+  sudo systemctl start docker
+  sudo systemctl enable docker
+fi
+
 # Ghostty terminal
 if ! command -v ghostty &> /dev/null; then
   pacman -S ghostty
