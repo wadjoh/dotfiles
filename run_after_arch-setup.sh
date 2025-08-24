@@ -48,7 +48,7 @@ if ! id -nG "$USER" | grep -qw "docker"; then
     echo "Creating `docker` group"
     sudo groupadd docker
   fi
-  echo "Adding user to `docker` group"
+  echo "Adding user to `docker` group. NOTE: This won't take effect until after a reboot!"
   sudo usermod -aG docker $USER
 else
   echo "User already in `docker` group"
