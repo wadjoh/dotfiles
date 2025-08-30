@@ -11,6 +11,10 @@ if ! command -v pacman &> /dev/null; then
   exit 0
 fi
 
+# Set default shell for user
+echo $(which zsh) | sudo tee -a /etc/shells
+sudo chsh -s $(which zsh) wade
+
 echo "Arch OS detected. Installing apps for Arch"
 
 # allow ssh connections
