@@ -1,7 +1,6 @@
 vscode "astro-build.astro-vscode"
 vscode "christian-kohler.path-intellisense"
 vscode "dbaeumer.vscode-eslint"
-vscode "dorzey.vscode-sqlfluff"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "fabianlauer.vs-code-xml-format"
