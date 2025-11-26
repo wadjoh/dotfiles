@@ -134,5 +134,6 @@
   "diffEditor.maxComputationTime": 0,
   "diffEditor.experimental.useVersion2": true,
   "github.copilot.advanced": {},
-  "rust-analyzer.linkedProjects": []
+  "rust-analyzer.linkedProjects": [],
+  "go.toolsManagement.autoUpdate": true
 }
