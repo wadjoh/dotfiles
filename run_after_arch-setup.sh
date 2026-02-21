@@ -1,8 +1,8 @@
 #! /bin/bash
 
-if ! command -v chezmoi &> /dev/null || ! command -v fx &> /dev/null; then
+if ! command -v chezmoi &> /dev/null; then
   echo "Failed installing apps for arch environment"
-  echo "The \`chezmoi\` or \`fx\` command was not found"
+  echo "The \`chezmoi\` command was not found"
   exit 1
 fi
 
