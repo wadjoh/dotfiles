@@ -135,5 +135,7 @@
   "diffEditor.experimental.useVersion2": true,
   "github.copilot.advanced": {},
   "rust-analyzer.linkedProjects": [],
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "bashBeautify.tabSize": 2,
+  "diffEditor.ignoreTrimWhitespace": false
 }
