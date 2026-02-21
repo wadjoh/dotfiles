@@ -29,4 +29,4 @@ cask "itsycal" if OS.mac?
 cask "middleclick" if OS.mac?
 cask "viscosity" if OS.mac?
 cask "visual-studio-code"
-cask "zen-browser"
+cask "zen"
