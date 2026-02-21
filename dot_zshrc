@@ -68,10 +68,6 @@ alias fzff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transfo
 eval "$(atuin init zsh)"
 atuin gen-completions --shell bash --out-dir $HOME
 
-# fx autocomplete https://fx.wtf/install#autocomplete
-# shellcheck disable=SC1090
-source <(fx --comp zsh)
-
 # Stop history from populating in other tabs
 unsetopt inc_append_history
 unsetopt share_history

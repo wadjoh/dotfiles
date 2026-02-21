@@ -7,3 +7,5 @@
   editor = interactive-rebase-tool
 [core]
   pager = bat
+[init]
+	defeaultBranch = main
