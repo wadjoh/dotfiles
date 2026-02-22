@@ -19,8 +19,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="$HOMEBREW_PREFIX/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOMEBREW_PREFIX/bin:$HOME/.nodenv/bin:$HOME/.nodenv/shims:$HOME/Library/Python/2.7/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/opt/rocm/bin"
 export EDITOR="micro"
+export PAGER="bat"
 
 # Use bat for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -62,7 +63,7 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_OPTS='--multi --no-height --extended'
 # shellcheck disable=SC1090
 source <(fzf --zsh)
-alias fzff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+alias fzff="fzf --style full --preview 'prettybat --force-colorization {}' --bind 'focus:transform-header:file --brief {}'"
 
 # atuin shell integration
 eval "$(atuin init zsh)"
@@ -129,6 +130,8 @@ alias ls='eza --icons --group-directories-first --git --dereference --all'
 alias lst='ls -T --level 2'
 
 alias cd="z"
+
+alias doco="docker compose"
 
 ######
 # END: Custom aliases/commands
