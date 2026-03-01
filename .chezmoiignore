@@ -5,3 +5,7 @@ dot_config/vscode/settings.json
 Library
 private_Library
 {{ end }}
+
+{{ if not (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
+dot_config/paru
+{{ end }}
