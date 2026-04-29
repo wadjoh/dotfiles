@@ -1,1 +1,18 @@
 Aloxaf/fzf-tab
+
+# https://github.com/mattmc3/zephyr
+using:mattmc3/zephyr path:plugins
+color
+# completion
+# compstyle
+confd
+directory
+editor
+environment
+# history
+homebrew
+macos
+# prompt
+# utility
+zfunctions
+zdharma-continuum/fast-syntax-highlighting
