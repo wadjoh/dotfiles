@@ -89,8 +89,10 @@ unsetopt share_history
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # iterm2 shell integration
-# shellcheck disable=SC1091
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ -n "$ITERM_SESSION_ID" ]]; then
+  # shellcheck disable=SC1091
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
 # Load machine specific .zshrc (this should be made so it wont source itself and cause infinite loop)
 # shellcheck disable=SC1090
@@ -142,9 +144,3 @@ alias doco="docker compose"
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 eval "$(chezmoi completion zsh)"
-
-# NOTE: May not need anymore due to using `zdharma-continuum/fast-syntax-highlighting` through antidote
-# Load syntax highlighting
-# Always load at the end: https://github.com/zsh-users/zsh-syntax-highlighting?tab=readme-ov-file#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
-# shellcheck disable=SC1091
-# source "$_ZSH_SYNTAX_HIGHLIGHT"
