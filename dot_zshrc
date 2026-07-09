@@ -98,6 +98,11 @@ fi
 # shellcheck disable=SC1090
 [ -f ~/.custom.zshrc ] && source ~/.custom.zshrc
 
+# Enable inline command string replacement
+autoload -Uz replace-string
+zle -N replace-string
+bindkey '^X^R' replace-string
+
 ######
 # BEGIN: Custom aliases/commands
 ######
