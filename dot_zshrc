@@ -127,7 +127,8 @@ export EZA_COLORS
 # Set system `ls` to `.ls` since we will be aliasing the `ls` command
 alias ".ls"='/bin/ls -G'
 # Replace `ls` command with `eza` with some nice defaults set
-alias ls='eza --icons --group-directories-first --git --dereference --all'
+alias ls='eza --icons --group-directories-first --git --dereference --all --hyperlink=auto'
+alias lsa='ls -lah'
 alias lst='ls -T --level 2'
 
 alias cd="z"
