@@ -1701,6 +1701,25 @@
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
   (( ! $+functions[p10k] )) || p10k reload
+
+  ####################[ transient prompt: keep a timestamp ]#####################################
+  # p10k's built-in transient prompt is hardcoded to just the colored prompt_char. Extend it
+  # (via a precmd hook, since _p9k_transient_prompt may not exist yet on first shell startup)
+  # with the time, in ansi 38;5;8 (== %F{8}), placed to the left of prompt_char.
+  #
+  # Use the deferred %D{} prompt escape rather than computing the time eagerly in the hook.
+  # zsh expands %D{} at the moment the prompt is actually drawn -- which for transient collapse
+  # is zle-line-finish, the instant Enter is pressed for the command about to run -- so this
+  # always shows the time that command was launched, not whenever precmd last happened to fire.
+  # Prepended once (idempotent via the marker check); the deferred escape stays fresh on its own.
+  function _p10k_transient_extend() {
+    emulate -L zsh
+    [[ -n $_p9k_transient_prompt ]] || return
+    [[ $_p9k_transient_prompt == *'%D{%H:%M:%S}'* ]] && return
+    _p9k_transient_prompt='%F{8}%D{%H:%M:%S}%f '"$_p9k_transient_prompt"
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _p10k_transient_extend
 }
 
 # Tell `p10k configure` which file it should overwrite.
