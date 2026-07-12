@@ -1,11 +1,12 @@
 dot_config/iterm/com.googlecode.iterm2.plist
 dot_config/vscode/settings.json
 
-{{ if ne .chezmoi.os "darwin" }}
+
+{{- if ne .chezmoi.os "darwin" }}
 Library
 private_Library
-{{ end }}
+{{- end }}
 
-{{ if not (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
+{{- if not (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch")) }}
 dot_config/paru
-{{ end }}
+{{- end }}
