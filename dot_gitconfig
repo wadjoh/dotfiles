@@ -1,6 +1,16 @@
 [user]
   name = Wade Johnson
   email = wadej93@gmail.com
+[credential "https://github.com"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+[credential]
+  helper = store
+[push]
+  autoSetupRemote = true
 [alias]
   stashs = stash push -S
 [sequence]
